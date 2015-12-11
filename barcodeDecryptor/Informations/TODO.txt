@@ -1,0 +1,29 @@
+﻿
+Ver. 0.1 - 2015-06-15
+Full support for EAN-8
+Full support for EAN-13
+Full support for UPC
+
+Further Dev
+
+Full support for Codabar Monarch (NW7)
+Full support for Code 11
+Full support for Code 39
+Full support for Code 93
+Full support for Code 128
+Full support for HIBC
+Full support for ITF ou Interleaved 2 of 5
+Full support for Industrial 2of5
+Full support for CIP Pharmacode France
+Full support for Laetus Pharmacode etc
+Full support for PDF 417
+Full support for Code 16K
+Full support for Code 49
+Full support for le Postnet
+Full support for Code One
+Full support for Code Aztec
+Full support for DataMatrix
+Full support for MaxiCode 
+Full support for QR Code
+Full support for Micro QR Code
+Generate a barcode image (BMP, jpeg, ...)

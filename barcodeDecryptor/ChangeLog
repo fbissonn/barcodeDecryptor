@@ -1,0 +1,12 @@
+2015-12-11  Francois Bissonnette  <fbissonn@gmail.com>
+
+	* UPC.cs:
+	* EAN13.cs:
+	* EAN-8.cs:
+	* Program.cs:
+	* EmptyClass.cs:
+	* MainWindow.cs:
+	* barcodeOutput.cs:
+	* Informations/TODO.txt:
+	* Properties/AssemblyInfo.cs: 
+
