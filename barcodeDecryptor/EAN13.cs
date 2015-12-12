@@ -1,3 +1,23 @@
+//
+//  EAN13.cs
+//
+//  Author:
+//       Francois Bissonnette <fbissonn@gmail.com>
+//
+//  Copyright (c) 2015 Francois Bissonnette
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
 namespace barcodeDecryptor
@@ -7,12 +27,18 @@ namespace barcodeDecryptor
   /// </summary>
   public class EAN13
   {
-    
+   
+    /// <summary>
+    /// The check digit multiplier.
+    /// </summary>
     private  int[] checkDigitMultiplier = {
 
       1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3
     };
 
+    /// <summary>
+    /// The convert table.
+    /// </summary>
     private  String[,] convertTable = {
       { "0001101", "0011001", "0010011", "0111101", "0100011", "0110001", "0101111", "0111011", "0110111", "0001011" },
       { "0100111", "0110011", "0011011", "0100001", "0011101", "0111001", "0000101", "0010001", "0001001", "0010111" },
@@ -20,6 +46,9 @@ namespace barcodeDecryptor
         
     };
 
+    /// <summary>
+    /// The index of the convert.
+    /// </summary>
     private int[,] convertIndex = {
 
       { 0, 0, 0, 0, 0, 0 },
@@ -34,15 +63,42 @@ namespace barcodeDecryptor
       { 0, 0, 0, 0, 0, 0 },
     };
 
+    /// <summary>
+    /// The start end symbol.
+    /// </summary>
     private const String startEndSymbol = "101";
-    private const String middleSymbol = "01010";
-    private const int encryptedBarcodeLenght = 95;
-    public int[] barcodeValueIndex;
 
+    /// <summary>
+    /// The middle symbol.
+    /// </summary>
+    private const String middleSymbol = "01010";
+
+    /// <summary>
+    /// The encrypted barcode lenght.
+    /// </summary>
+    private const int encryptedBarcodeLenght = 95;
+
+    /// <summary>
+    /// The index of the barcode value.
+    /// </summary>
+    public int[] barcodeValueIndex;
+   
+    /// <summary>
+    /// Initializes a new instance of the <see cref="barcodeDecryptor.EAN13"/> class.
+    /// </summary>
     public EAN13()
     {
         barcodeValueIndex = new int[100];
         
+    }
+    /// <summary>
+    /// Gets the index of the barcode value.
+    /// </summary>
+    /// <returns>The barcode value index.</returns>
+    public int [] getBarcodeValueIndex()
+    {
+      return barcodeValueIndex;
+
     }
 
     /// <summary>
@@ -51,7 +107,7 @@ namespace barcodeDecryptor
     /// <param name="phrase">Your non encoded barcode ie. 0097363373766</param>
     ///<returns>the encoded barcode (010101) on String format</returns>
     public String Encrypt(String phrase)
-    {
+      {
       String returnValue = phrase;
       int valueToCrypt = -1;        
 

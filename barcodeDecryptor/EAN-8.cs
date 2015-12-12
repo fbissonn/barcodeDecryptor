@@ -20,13 +20,20 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 
+
 namespace barcodeDecryptor
 {
-  public class EAN_8
+  /// <summary>
+  /// EAN8
+  /// </summary>
+  public class EAN8
   {
-    public EAN_8()
+    /// <summary>
+    /// Initializes a new instance of the <see cref="barcodeDecryptor.EAN_8"/> class.
+    /// </summary>
+    public EAN8()
     {
-
+        throw new NotImplementedException("Not implemented yet !!");
     }
   }
 }

@@ -1,12 +1,28 @@
 2015-12-11  Francois Bissonnette  <fbissonn@gmail.com>
 
 	* UPC.cs:
-	* EAN13.cs:
 	* EAN-8.cs:
+	* EAN13.cs:
+	* ChangeLog:
 	* Program.cs:
-	* EmptyClass.cs:
 	* MainWindow.cs:
+	* EmptyClass.cs:
+	* testWindows.cs:
 	* barcodeOutput.cs:
-	* Informations/TODO.txt:
-	* Properties/AssemblyInfo.cs: 
+	* genericBarcode.cs:
+	* gtk-gui/MainWindow.cs:
+	* bin/Debug/barcodeDecryptor.xml: 
+
+2015-12-11  Francois Bissonnette  <fbissonn@gmail.com>
+
+	* genericBarcode.cs: Add a generic barcode template to avoid multiple class call
+	* UPC.cs: update documentation
+	* EAN13.cs:update documentation
+	* EAN-8.cs:update documentation
+	* Program.cs:update documentation
+	* EmptyClass.cs:update documentation
+	* MainWindow.cs:update documentation
+	* barcodeOutput.cs:update documentation
+	* Informations/TODO.txt:update documentation
+	* Properties/AssemblyInfo.cs: update documentation
 

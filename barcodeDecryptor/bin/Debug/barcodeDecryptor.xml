@@ -1,0 +1,174 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>barcodeDecryptor</name>
+    </assembly>
+    <members>
+        <member name="T:MainWindow">
+            <summary>
+            Main window.
+            </summary></member>
+        <member name="M:MainWindow.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:MainWindow" /> class.
+            </summary></member>
+        <member name="M:MainWindow.OnDeleteEvent(System.Object,Gtk.DeleteEventArgs)">
+            <summary>
+            Raises the delete event event.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="a">The alpha component.</param></member>
+        <member name="M:MainWindow.OnCmdDecryptEntered(System.Object,System.EventArgs)">
+            <summary>
+            Raises the cmd decrypt entered event.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param></member>
+        <member name="M:MainWindow.errorHandling(System.String)">
+            <summary>
+            Errors the handling.
+            </summary>
+            <param name="message">Message.</param></member>
+        <member name="M:MainWindow.OnClick(System.Object,System.EventArgs)">
+            <summary>
+            Raises the click event.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param></member>
+        <member name="M:MainWindow.onShown(System.Object,System.EventArgs)">
+            <summary>
+            Ons the shown.
+            </summary>
+            <param name="sender">Sender.</param>
+            <param name="e">E.</param></member>
+        <member name="T:barcodeDecryptor.UPC">
+            <summary>
+            UPC Class
+            </summary></member>
+        <member name="M:barcodeDecryptor.UPC.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:barcodeDecryptor.UPC" /> class.
+            </summary></member>
+        <member name="T:barcodeDecryptor.EAN8">
+            <summary>
+            EAN8
+            </summary></member>
+        <member name="M:barcodeDecryptor.EAN8.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="!:barcodeDecryptor.EAN_8" /> class.
+            </summary></member>
+        <member name="T:barcodeDecryptor.EAN13">
+            <summary>
+            This Class provide you a full access to your EAN-13 decryptions and barcode generation
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.checkDigitMultiplier">
+            <summary>
+            The check digit multiplier.
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.convertTable">
+            <summary>
+            The convert table.
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.convertIndex">
+            <summary>
+            The index of the convert.
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.startEndSymbol">
+            <summary>
+            The start end symbol.
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.middleSymbol">
+            <summary>
+            The middle symbol.
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.encryptedBarcodeLenght">
+            <summary>
+            The encrypted barcode lenght.
+            </summary></member>
+        <member name="F:barcodeDecryptor.EAN13.barcodeValueIndex">
+            <summary>
+            The index of the barcode value.
+            </summary></member>
+        <member name="M:barcodeDecryptor.EAN13.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:barcodeDecryptor.EAN13" /> class.
+            </summary></member>
+        <member name="M:barcodeDecryptor.EAN13.getBarcodeValueIndex">
+            <summary>
+            Gets the index of the barcode value.
+            </summary>
+            <returns>The barcode value index.</returns></member>
+        <member name="M:barcodeDecryptor.EAN13.Encrypt(System.String)">
+            <summary>
+            Encrypt your barcode with the numeral barcode you provide in the parameters.
+            </summary>
+            <param name="phrase">Your non encoded barcode ie. 0097363373766</param>
+            <returns>the encoded barcode (010101) on String format</returns></member>
+        <member name="M:barcodeDecryptor.EAN13.checkDigit(System.String)">
+            <summary>
+            Calculate the checkdigit for the EAN-13 barcode
+            </summary>
+            <returns>The checkdigit.</returns>
+            <param name="phrase">the barcode</param></member>
+        <member name="T:barcodeDecryptor.barcodeOutput">
+            <summary>
+            Barcode output.
+            </summary></member>
+        <member name="T:barcodeDecryptor.barcodeOutput.barcodeEnum">
+            <summary>
+            Barcode enum.
+            </summary></member>
+        <member name="F:barcodeDecryptor.barcodeOutput.barcodeEnum.BC_EAN_13">
+            <summary>
+            Reference to Barcode EAN13
+            </summary></member>
+        <member name="F:barcodeDecryptor.barcodeOutput.barcodeEnum.NUM_BARCODE">
+            <summary>
+            The number of Barcode implemented
+            </summary></member>
+        <member name="F:barcodeDecryptor.barcodeOutput.penWidth">
+            <summary>
+            The width of the pen.
+            </summary></member>
+        <member name="M:barcodeDecryptor.barcodeOutput.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:barcodeDecryptor.barcodeOutput" /> class.
+            </summary></member>
+        <member name="M:barcodeDecryptor.barcodeOutput.DrawLinearBarcode(System.String,System.String,System.Int32,System.Int32[],System.Int32)">
+            <summary>
+            Draws the linear barcode.
+            </summary>
+            <returns>The linear barcode.</returns>
+            <param name="encryptedBarcode">Encrypted barcode.</param>
+            <param name="decryptedBarcode">Decrypted barcode.</param>
+            <param name="barcodeType">Barcode type.</param>
+            <param name="barcodeValueIndex">Barcode value index.</param>
+            <param name="magnification">Magnification.</param></member>
+        <member name="T:barcodeDecryptor.genericBarcode">
+            <summary>
+            Generic barcode.
+            </summary></member>
+        <member name="F:barcodeDecryptor.genericBarcode.cEAN13">
+            <summary>
+            The EAN13
+            </summary></member>
+        <member name="F:barcodeDecryptor.genericBarcode.cEAN8">
+            <summary>
+            The EAN8
+            </summary></member>
+        <member name="M:barcodeDecryptor.genericBarcode.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:barcodeDecryptor.genericBarcode" /> class.
+            </summary></member>
+        <member name="M:barcodeDecryptor.genericBarcode.Encrypt(System.String)">
+            <summary>
+            Encrypt the specified phrase.
+            </summary>
+            <param name="phrase">Phrase.</param></member>
+        <member name="M:barcodeDecryptor.genericBarcode.getBarcodeValueIndex">
+            <summary>
+            Gets the index of the barcode value.
+            </summary>
+            <returns>The barcode value index.</returns></member>
+    </members>
+</doc>

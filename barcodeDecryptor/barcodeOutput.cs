@@ -33,21 +33,48 @@ using System.Drawing.Drawing2D;
 namespace barcodeDecryptor
 {
  
-
+  /// <summary>
+  /// Barcode output.
+  /// </summary>
   public class barcodeOutput
   {
+    /// <summary>
+    /// Barcode enum.
+    /// </summary>
     public enum barcodeEnum{
+      /// <summary>
+      /// Reference to Barcode EAN13
+      /// </summary>
       BC_EAN_13,
+      /// <summary>
+      /// The number of Barcode implemented
+      /// </summary>
       NUM_BARCODE
 
     };
+
+    /// <summary>
+    /// The width of the pen.
+    /// </summary>
     private const int penWidth = 1;
 
+    /// <summary>
+    /// Initializes a new instance of the <see cref="barcodeDecryptor.barcodeOutput"/> class.
+    /// </summary>
     public barcodeOutput()
     {
-        
+        //throw new NotImplementedException("Not implemented yet !!");
     }
 
+    /// <summary>
+    /// Draws the linear barcode.
+    /// </summary>
+    /// <returns>The linear barcode.</returns>
+    /// <param name="encryptedBarcode">Encrypted barcode.</param>
+    /// <param name="decryptedBarcode">Decrypted barcode.</param>
+    /// <param name="barcodeType">Barcode type.</param>
+    /// <param name="barcodeValueIndex">Barcode value index.</param>
+    /// <param name="magnification">Magnification.</param>
     public Gdk.Pixbuf DrawLinearBarcode(String encryptedBarcode, String decryptedBarcode, int barcodeType, int[] barcodeValueIndex, int magnification)
       {
         Bitmap bmp=new Bitmap(300,300);

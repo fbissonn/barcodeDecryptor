@@ -1,5 +1,5 @@
 ﻿//
-//  UPC.cs
+//  testWindows.cs
 //
 //  Author:
 //       Francois Bissonnette <fbissonn@gmail.com>
@@ -22,17 +22,12 @@ using System;
 
 namespace barcodeDecryptor
 {
-  /// <summary>
-  /// UPC Class
-  /// </summary>
-  public class UPC
+  [System.ComponentModel.ToolboxItem(true)]
+  public partial class testWindows : Gtk.Bin
   {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="barcodeDecryptor.UPC"/> class.
-    /// </summary>
-    public UPC()
+    public testWindows()
     {
-        throw new NotImplementedException("Not implemented yet !!");
+      this.Build();
     }
   }
 }
