@@ -1,5 +1,6 @@
 ﻿
-Ver. 0.1 - 2015-06-15
+ - Need an abstract factory design pattern to handle the barcode creation
+
 Full support for EAN-8
 Full support for EAN-13
 Full support for UPC
