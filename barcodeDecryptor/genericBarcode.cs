@@ -26,18 +26,8 @@ namespace barcodeDecryptor
   /// <summary>
   /// Generic barcode.
   /// </summary>
-  public class genericBarcode
+  abstract class genericBarcode
   {
-    /// <summary>
-    /// The EAN13
-    /// </summary>
-    private EAN13 cEAN13;
-    /// <summary>
-    /// The EAN8
-    /// </summary>
-    private EAN8 cEAN8;
-
-    private object oContainer;
 
    
     /// <summary>
@@ -59,8 +49,12 @@ namespace barcodeDecryptor
       switch (phrase.Length)
         {
 
-        case 13:
-          cEAN13 = new EAN13();
+                case 13:
+                    return (new EAN13());
+                    break;
+                case 8:
+                    return (new EAN8());
+                    break;
           
           returnValue = cEAN13.Encrypt(phrase);
           break;
