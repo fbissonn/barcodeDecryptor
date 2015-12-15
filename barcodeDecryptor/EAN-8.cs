@@ -21,7 +21,7 @@
 using System;
 
 
-namespace barcodeDecryptor
+namespace barcodeDecryptor 
 {
   /// <summary>
   /// EAN8

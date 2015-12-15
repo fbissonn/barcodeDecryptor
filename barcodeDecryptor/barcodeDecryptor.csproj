@@ -58,9 +58,13 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gtk-gui\generated.cs" />
+    <Compile Include="gtk-gui\generated.cs">
+      <Link>barcodeDecryptor\barcodeDecryptor\gtk-gui\generated.cs</Link>
+    </Compile>
     <Compile Include="MainWindow.cs" />
-    <Compile Include="gtk-gui\MainWindow.cs" />
+    <Compile Include="gtk-gui\MainWindow.cs">
+      <Link>barcodeDecryptor\barcodeDecryptor\gtk-gui\MainWindow.cs</Link>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="barcodeOutput.cs" />
@@ -69,11 +73,20 @@
     <Compile Include="genericBarcode.cs" />
     <Compile Include="testWindows.cs" />
     <Compile Include="UPC.cs" />
+    <Compile Include="gtk-gui\barcodeDecryptor.Window.cs">
+      <Link>barcodeDecryptor\barcodeDecryptor\gtk-gui\barcodeDecryptor.Window.cs</Link>
+    </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <None Include="bin\Debug\barcodeDecryptor.xml" />
     <None Include="ChangeLog" />
+    <None Include="barcodeDecryptor.csproj">
+      <Link>barcodeDecryptor\barcodeDecryptor\barcodeDecryptor.csproj</Link>
+    </None>
+    <None Include="gtk-gui\gui.stetic">
+      <Link>barcodeDecryptor\barcodeDecryptor\gtk-gui\gui.stetic</Link>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="gtk-gui\" />

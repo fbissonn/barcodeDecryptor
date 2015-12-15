@@ -1,5 +1,15 @@
 2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
 
+	* EAN-8.cs:
+	* gtk-gui2\gui.stetic:
+	* gtk-gui2\generated.cs:
+	* gtk-gui2\MainWindow.cs:
+	* barcodeDecryptor.csproj:
+	* gtk-gui\barcodeDecryptor.Window.cs:
+	  
+
+2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
+
 	* ChangeLog: none
 	  
 
