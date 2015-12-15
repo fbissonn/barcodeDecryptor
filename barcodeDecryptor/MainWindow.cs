@@ -1,4 +1,4 @@
-//
+﻿//
 //  MainWindows.cs
 //
 //  Author:
@@ -37,65 +37,65 @@ using System.Drawing.Drawing2D;
 public partial class MainWindow: Gtk.Window
 {
 
-  /// <summary>
-  /// Initializes a new instance of the <see cref="MainWindow"/> class.
-  /// </summary>
-  public MainWindow()
-    : base(Gtk.WindowType.Toplevel)
-  {
-    //label1.SetSizeRequest(500, 300);
+	/// <summary>
+	/// Initializes a new instance of the <see cref="MainWindow"/> class.
+	/// </summary>
+	public MainWindow()
+		: base(Gtk.WindowType.Toplevel)
+	{
+		//label1.SetSizeRequest(500, 300);
 
-    Build();
-  }
-  /// <summary>
-  /// Raises the delete event event.
-  /// </summary>
-  /// <param name="sender">Sender.</param>
-  /// <param name="a">The alpha component.</param>
-  protected void OnDeleteEvent(object sender, DeleteEventArgs a)
-  {
-    Application.Quit();
-    a.RetVal = true;
-  }
-  /// <summary>
-  /// Raises the cmd decrypt entered event.
-  /// </summary>
-  /// <param name="sender">Sender.</param>
-  /// <param name="e">E.</param>
-  protected void OnCmdDecryptEntered(object sender, EventArgs e)
-  {
-    try
-      {
-          genericBarcode test = new genericBarcode();
-        //EAN13 test = new EAN13();
-        barcodeOutput output = new barcodeOutput();
+		Build();
+	}
+	/// <summary>
+	/// Raises the delete event event.
+	/// </summary>
+	/// <param name="sender">Sender.</param>
+	/// <param name="a">The alpha component.</param>
+	protected void OnDeleteEvent(object sender, DeleteEventArgs a)
+	{
+		Application.Quit();
+		a.RetVal = true;
+	}
+	/// <summary>
+	/// Raises the cmd decrypt entered event.
+	/// </summary>
+	/// <param name="sender">Sender.</param>
+	/// <param name="e">E.</param>
+	protected void OnCmdDecryptEntered(object sender, EventArgs e)
+	{
+		try
+		{
+			genericBarcode test = new genericBarcode();
+			//EAN13 test = new EAN13();
+			barcodeOutput output = new barcodeOutput();
 
-        Pango.FontDescription fontdesc = Pango.FontDescription.FromString("EAN-13 66");
+			Pango.FontDescription fontdesc = Pango.FontDescription.FromString("EAN-13 66");
 
-        label3.ModifyFont(fontdesc);
+			label3.ModifyFont(fontdesc);
 
-        //label3.Text = 
+			//label3.Text = 
 
-          txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
-        //txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
+			txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
+			//txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
 
-          image1.Pixbuf = output.DrawLinearBarcode(txtOutput.Buffer.Text,txtInput.Text,(int) barcodeOutput.barcodeEnum.BC_EAN_13,test.getBarcodeValueIndex(),0);
-        
-      } catch (Exception ex)
-      {
-        errorHandling(ex.Message.ToString());
-      }
+			image1.Pixbuf = output.DrawLinearBarcode(txtOutput.Buffer.Text,txtInput.Text,(int) barcodeOutput.barcodeEnum.BC_EAN_13,test.getBarcodeValueIndex(),0);
 
-
-  }
+		} catch (Exception ex)
+		{
+			errorHandling(ex.Message.ToString());
+		}
 
 
+	}
 
- 
-    /// <summary>
-    /// Errors the handling.
-    /// </summary>
-    /// <param name="message">Message.</param>
+
+
+
+	/// <summary>
+	/// Errors the handling.
+	/// </summary>
+	/// <param name="message">Message.</param>
 	private void errorHandling(String message)
 	{
 
@@ -104,23 +104,28 @@ public partial class MainWindow: Gtk.Window
 		md.Destroy();
 	}
 
-    /// <summary>
-    /// Raises the click event.
-    /// </summary>
-    /// <param name="sender">Sender.</param>
-    /// <param name="e">E.</param>
+	/// <summary>
+	/// Raises the click event.
+	/// </summary>
+	/// <param name="sender">Sender.</param>
+	/// <param name="e">E.</param>
 	protected void OnClick (object sender, EventArgs e)
 	{
 		Application.Quit ();
 	}
-  
-    /// <summary>
-    /// Ons the shown.
-    /// </summary>
-    /// <param name="sender">Sender.</param>
-    /// <param name="e">E.</param>
+
+	/// <summary>
+	/// Ons the shown.
+	/// </summary>
+	/// <param name="sender">Sender.</param>
+	/// <param name="e">E.</param>
 	protected void onShown(object sender, EventArgs e)
 	{
-      throw new NotImplementedException("Not implemented yet !!");
+		throw new NotImplementedException("Not implemented yet !!");
 	}
+
+    protected void onClick (object sender, EventArgs e)
+    {
+        throw new NotImplementedException ();
+    }
 }

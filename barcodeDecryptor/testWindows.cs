@@ -27,7 +27,7 @@ namespace barcodeDecryptor
   {
     public testWindows()
     {
-      this.Build();
+      //this.Build();
     }
   }
 }
