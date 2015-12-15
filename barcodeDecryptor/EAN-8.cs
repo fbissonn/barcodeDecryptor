@@ -33,7 +33,7 @@ namespace barcodeDecryptor
         /// </summary>
         private  int[] checkDigitMultiplier = {
 
-            1, 3, 1, 3, 1, 3, 1, 3, 1, 3, 1, 3
+            3, 1, 3, 1, 3, 1, 3
         };
 
         /// <summary>
@@ -76,7 +76,7 @@ namespace barcodeDecryptor
         /// <summary>
         /// The encrypted barcode lenght.
         /// </summary>
-        private const int encryptedBarcodeLenght = 95;
+        private const int encryptedBarcodeLenght = 67;
 
         /// <summary>
         /// The index of the barcode value.
@@ -114,8 +114,8 @@ namespace barcodeDecryptor
             String returnValue = phrase;
             int valueToCrypt = -1;        
 
-            if (phrase.Length != 13)
-                throw new ApplicationException(string.Format("Invalid barcode lenght of {0} should have a lenght of 13", phrase.Length));
+            if (phrase.Length != 8)
+                throw new ApplicationException(string.Format("Invalid barcode lenght of {0} should have a lenght of 8\t", phrase.Length));
 
             int valCD = checkDigit();
 
@@ -131,7 +131,7 @@ namespace barcodeDecryptor
 
             for (int pos = 1; pos < phrase.Length; pos++)
             {
-                if (pos < 6)
+                if (pos < 5)
                 {
                     returnValue += convertTable[convertIndex[valueToCrypt,pos],Convert.ToInt32(phrase.Substring(pos, 1))];
 
@@ -141,7 +141,7 @@ namespace barcodeDecryptor
                 } 
                 else
                 {
-                    if (pos == 7)
+                    if (pos == 5)
                     {
                         returnValue += middleSymbol; 
                         posPtrPrev = posPtr;
@@ -166,18 +166,14 @@ namespace barcodeDecryptor
         /// <param name="phrase">the barcode</param>
         public override int checkDigit()
         {
-            int tot = 0, returnValue = -1;
+            int tot = 0;
 
             for (int pos = 0; pos < phrase.Length - 1; pos++)
             {
                 tot += Convert.ToInt32(phrase.Substring(pos, 1)) * checkDigitMultiplier[pos];
             }
 
-            returnValue = tot;
-            tot = tot % 10;
-            returnValue = 10 - tot;
-
-            return returnValue;
+            return 10 - tot;
         }
   }
 }

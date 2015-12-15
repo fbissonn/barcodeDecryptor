@@ -1,5 +1,12 @@
 2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
 
+	* EAN-8.cs:
+	* EAN13.cs:
+	* barcodeOutput.cs:
+	  
+
+2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
+
 	* barcodeDecryptor.csproj:
 	  abstract factory added
 

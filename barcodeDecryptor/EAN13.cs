@@ -164,20 +164,16 @@ namespace barcodeDecryptor
     /// </summary>
     /// <returns>The checkdigit.</returns>
     /// <param name="phrase">the barcode</param>
-     public    override int checkDigit()
+     public override int checkDigit()
     {
-      int tot = 0, returnValue = -1;
+            int tot = 0;
 
-      for (int pos = 0; pos < phrase.Length - 1; pos++)
-        {
-          tot += Convert.ToInt32(phrase.Substring(pos, 1)) * checkDigitMultiplier[pos];
-        }
+            for (int pos = 0; pos < phrase.Length - 1; pos++)
+            {
+                tot += Convert.ToInt32(phrase.Substring(pos, 1)) * checkDigitMultiplier[pos];
+            }
 
-      returnValue = tot;
-      tot = tot % 10;
-      returnValue = 10 - tot;
-
-      return returnValue;
+            return 10 - tot;
     }
   }
 }

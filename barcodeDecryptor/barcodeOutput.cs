@@ -38,6 +38,7 @@ namespace barcodeDecryptor
   /// </summary>
   public class barcodeOutput
   {
+        
     /// <summary>
     /// Barcode enum.
     /// </summary>
