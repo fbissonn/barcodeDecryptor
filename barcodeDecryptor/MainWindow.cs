@@ -66,7 +66,7 @@ public partial class MainWindow: Gtk.Window
 	{
 		try
 		{
-			genericBarcode test = new genericBarcode();
+            genericBarcode test = genericBarcode.getBarcode(txtInput.Text);
 			//EAN13 test = new EAN13();
 			barcodeOutput output = new barcodeOutput();
 
@@ -76,7 +76,7 @@ public partial class MainWindow: Gtk.Window
 
 			//label3.Text = 
 
-			txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
+			txtOutput.Buffer.Text = test.Encrypt();
 			//txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
 
 			image1.Pixbuf = output.DrawLinearBarcode(txtOutput.Buffer.Text,txtInput.Text,(int) barcodeOutput.barcodeEnum.BC_EAN_13,test.getBarcodeValueIndex(),0);

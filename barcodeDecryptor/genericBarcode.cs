@@ -23,58 +23,47 @@ using System;
 
 namespace barcodeDecryptor
 {
-  /// <summary>
-  /// Generic barcode.
-  /// </summary>
-  abstract class genericBarcode
-  {
-
-   
     /// <summary>
-    /// Initializes a new instance of the <see cref="barcodeDecryptor.genericBarcode"/> class.
+    /// Generic barcode.
     /// </summary>
-    public genericBarcode()
+    abstract class genericBarcode
     {
         
-    }
-
-    /// <summary>
-    /// Encrypt the specified phrase.
-    /// </summary>
-    /// <param name="phrase">Phrase.</param>
-    public String Encrypt(String phrase)
-    {
-      string returnValue = "";
-
-      switch (phrase.Length)
+        /// <summary>
+        /// Encrypt the specified phrase.
+        /// </summary>
+        /// <param name="phrase">Phrase.</param>
+        public static genericBarcode getBarcode(String phrase)
         {
+            string returnValue = "";
+
+            switch (phrase.Length)
+            {
 
                 case 13:
-                    return (new EAN13());
+                    return (new EAN13(phrase));
                     break;
                 case 8:
-                    return (new EAN8());
+                    return (new EAN8(phrase));
                     break;
-          
-          returnValue = cEAN13.Encrypt(phrase);
-          break;
-          
-        }
+                default:
+                    return null;
+                    break;
+            }
       
-      return returnValue;
+
+        }
+
+        /// <summary>
+        /// Gets the index of the barcode value.
+        /// </summary>
+        /// <returns>The barcode value index.</returns>
+        public abstract int [] getBarcodeValueIndex();
+        public abstract int checkDigit();
+        public abstract String Encrypt();
+       
+
+
     }
-
-    /// <summary>
-    /// Gets the index of the barcode value.
-    /// </summary>
-    /// <returns>The barcode value index.</returns>
-    public int [] getBarcodeValueIndex()
-    {
-      return cEAN13.getBarcodeValueIndex();
-    }
-    
-
-
-  }
 }
 

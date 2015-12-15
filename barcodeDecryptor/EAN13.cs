@@ -25,7 +25,7 @@ namespace barcodeDecryptor
   /// <summary>
   /// This Class provide you a full access to your EAN-13 decryptions and barcode generation
   /// </summary>
-  public class EAN13
+   class EAN13 : genericBarcode
   {
    
     /// <summary>
@@ -82,20 +82,23 @@ namespace barcodeDecryptor
     /// The index of the barcode value.
     /// </summary>
     public int[] barcodeValueIndex;
+
+        protected string phrase;
    
     /// <summary>
     /// Initializes a new instance of the <see cref="barcodeDecryptor.EAN13"/> class.
     /// </summary>
-    public EAN13()
+        public EAN13(String phrase)
     {
         barcodeValueIndex = new int[100];
+            this.phrase = phrase;
         
     }
     /// <summary>
     /// Gets the index of the barcode value.
     /// </summary>
     /// <returns>The barcode value index.</returns>
-    public int [] getBarcodeValueIndex()
+     public    override int [] getBarcodeValueIndex()
     {
       return barcodeValueIndex;
 
@@ -106,7 +109,7 @@ namespace barcodeDecryptor
     /// </summary>
     /// <param name="phrase">Your non encoded barcode ie. 0097363373766</param>
     ///<returns>the encoded barcode (010101) on String format</returns>
-    public String Encrypt(String phrase)
+      public override String Encrypt()
       {
       String returnValue = phrase;
       int valueToCrypt = -1;        
@@ -114,7 +117,7 @@ namespace barcodeDecryptor
       if (phrase.Length != 13)
         throw new ApplicationException(string.Format("Invalid barcode lenght of {0} should have a lenght of 13", phrase.Length));
 
-      int valCD = checkDigit(phrase);
+      int valCD = checkDigit();
 
       if (valCD != Convert.ToInt32(phrase.Substring(phrase.Length - 1, 1)))
         throw new ApplicationException(string.Format("Check digit invalid found {0} in the barcode and {1} after calculation", valCD, Convert.ToInt32(phrase.Substring(phrase.Length - 1, 1))));
@@ -161,7 +164,7 @@ namespace barcodeDecryptor
     /// </summary>
     /// <returns>The checkdigit.</returns>
     /// <param name="phrase">the barcode</param>
-    public int checkDigit(String phrase)
+     public    override int checkDigit()
     {
       int tot = 0, returnValue = -1;
 

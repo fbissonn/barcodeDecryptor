@@ -1,5 +1,17 @@
 2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
 
+	* barcodeDecryptor.csproj:
+	  abstract factory added
+
+	* EAN-8.cs:
+	* EAN13.cs:
+	* MainWindow.cs:
+	* genericBarcode.cs:
+	* gtk-gui\barcodeDecryptor.Window.cs:
+	  
+
+2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
+
 	* genericBarcode.cs:
 	  
 
