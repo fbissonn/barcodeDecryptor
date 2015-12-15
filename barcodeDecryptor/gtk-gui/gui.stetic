@@ -2,12 +2,13 @@
 <stetic-interface>
   <configuration>
     <images-root-path>..</images-root-path>
+    <target-gtk-version>2.12</target-gtk-version>
   </configuration>
   <import>
-    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
     <widget-library name="../bin/Debug/barcodeDecryptor.exe" internal="true" />
+    <widget-library name="glade-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f" />
   </import>
-  <widget class="Gtk.Window" id="MainWindow" design-size="745 570">
+  <widget class="Gtk.Window" id="MainWindow" design-size="745 660">
     <property name="MemberName" />
     <property name="Title" translatable="yes">MainWindow</property>
     <property name="WindowPosition">CenterOnParent</property>
@@ -86,25 +87,35 @@
           </packing>
         </child>
         <child>
-          <widget class="Gtk.Label" id="label3">
+          <widget class="Gtk.EventBox" id="eventbox1">
             <property name="MemberName" />
-            <property name="WidthRequest">302</property>
-            <property name="HeightRequest">149</property>
+            <property name="WidthRequest">322</property>
+            <property name="HeightRequest">163</property>
+            <child>
+              <placeholder />
+            </child>
           </widget>
           <packing>
-            <property name="X">397</property>
-            <property name="Y">366</property>
+            <property name="X">400</property>
+            <property name="Y">406</property>
           </packing>
         </child>
         <child>
           <widget class="Gtk.Image" id="image1">
             <property name="MemberName" />
-            <property name="WidthRequest">271</property>
-            <property name="HeightRequest">157</property>
           </widget>
           <packing>
-            <property name="X">130</property>
-            <property name="Y">383</property>
+            <property name="X">235</property>
+            <property name="Y">386</property>
+          </packing>
+        </child>
+        <child>
+          <widget class="Gtk.Label" id="label3">
+            <property name="MemberName" />
+          </widget>
+          <packing>
+            <property name="X">585</property>
+            <property name="Y">351</property>
           </packing>
         </child>
       </widget>

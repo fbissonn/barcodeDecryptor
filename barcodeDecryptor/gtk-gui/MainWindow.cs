@@ -17,9 +17,11 @@ public partial class MainWindow
 	
 	private global::Gtk.Entry txtInput;
 	
-	private global::Gtk.Label label3;
+	private global::Gtk.EventBox eventbox1;
 	
 	private global::Gtk.Image image1;
+	
+	private global::Gtk.Label label3;
 
 	protected virtual void Build ()
 	{
@@ -87,29 +89,34 @@ public partial class MainWindow
 		w6.X = 192;
 		w6.Y = 71;
 		// Container child fixed3.Gtk.Fixed+FixedChild
-		this.label3 = new global::Gtk.Label ();
-		this.label3.WidthRequest = 302;
-		this.label3.HeightRequest = 149;
-		this.label3.Name = "label3";
-		this.fixed3.Add (this.label3);
-		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed3 [this.label3]));
-		w7.X = 397;
-		w7.Y = 366;
+		this.eventbox1 = new global::Gtk.EventBox ();
+		this.eventbox1.WidthRequest = 322;
+		this.eventbox1.HeightRequest = 163;
+		this.eventbox1.Name = "eventbox1";
+		this.fixed3.Add (this.eventbox1);
+		global::Gtk.Fixed.FixedChild w7 = ((global::Gtk.Fixed.FixedChild)(this.fixed3 [this.eventbox1]));
+		w7.X = 400;
+		w7.Y = 406;
 		// Container child fixed3.Gtk.Fixed+FixedChild
 		this.image1 = new global::Gtk.Image ();
-		this.image1.WidthRequest = 271;
-		this.image1.HeightRequest = 157;
 		this.image1.Name = "image1";
 		this.fixed3.Add (this.image1);
 		global::Gtk.Fixed.FixedChild w8 = ((global::Gtk.Fixed.FixedChild)(this.fixed3 [this.image1]));
-		w8.X = 130;
-		w8.Y = 383;
+		w8.X = 235;
+		w8.Y = 386;
+		// Container child fixed3.Gtk.Fixed+FixedChild
+		this.label3 = new global::Gtk.Label ();
+		this.label3.Name = "label3";
+		this.fixed3.Add (this.label3);
+		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed3 [this.label3]));
+		w9.X = 585;
+		w9.Y = 351;
 		this.Add (this.fixed3);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
 		}
 		this.DefaultWidth = 745;
-		this.DefaultHeight = 570;
+		this.DefaultHeight = 660;
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.cmdDecrypt.Clicked += new global::System.EventHandler (this.OnCmdDecryptEntered);

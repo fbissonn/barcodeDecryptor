@@ -1,3 +1,10 @@
+2015-12-15  Audrey  <${AuthorEmail}>
+
+	* gtk-gui\gui.stetic:
+	* gtk-gui\MainWindow.cs:
+	* barcodeDecryptor.csproj:
+	  
+
 2015-12-11  Francois Bissonnette  <fbissonn@gmail.com>
 
 	* Informations/TODO.txt: 
