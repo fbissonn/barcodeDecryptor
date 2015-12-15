@@ -1,4 +1,9 @@
-2015-12-15  Audrey  <${AuthorEmail}>
+2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
+
+	* ChangeLog: none
+	  
+
+2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
 
 	* gtk-gui\gui.stetic:
 	* gtk-gui\MainWindow.cs:
