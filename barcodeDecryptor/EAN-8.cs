@@ -21,17 +21,20 @@
 using System;
 
 
-namespace barcodeDecryptor 
+namespace barcodeDecryptor
 {
-  /// <summary>
-  /// EAN8
-  /// </summary>
-     class EAN8 : genericBarcode
-  {
+    /// <summary>
+    /// EAN8
+    /// </summary>
+    class EAN8 : genericBarcode
+    {
+
+        private const string fontDesc = "EAN-8 66";
         /// <summary>
         /// The check digit multiplier.
         /// </summary>
-        private  int[] checkDigitMultiplier = {
+        private  int[] checkDigitMultiplier =
+        {
 
             3, 1, 3, 1, 3, 1, 3
         };
@@ -39,7 +42,8 @@ namespace barcodeDecryptor
         /// <summary>
         /// The convert table.
         /// </summary>
-        private  String[,] convertTable = {
+        private  String[,] convertTable =
+        {
             { "0001101", "0011001", "0010011", "0111101", "0100011", "0110001", "0101111", "0111011", "0110111", "0001011" },
             { "0100111", "0110011", "0011011", "0100001", "0011101", "0111001", "0000101", "0010001", "0001001", "0010111" },
             { "1110010", "1100110", "1101100", "1000010", "1011100", "1001110", "1010000", "1000100", "1001000", "1110100" }
@@ -49,7 +53,8 @@ namespace barcodeDecryptor
         /// <summary>
         /// The index of the convert.
         /// </summary>
-        private int[,] convertIndex = {
+        private int[,] convertIndex =
+        {
 
             { 0, 0, 0, 0, 0, 0 },
             { 0, 0, 1, 0, 1, 1 },
@@ -81,9 +86,10 @@ namespace barcodeDecryptor
         /// <summary>
         /// The index of the barcode value.
         /// </summary>
-         int[] barcodeValueIndex;
+        int[] barcodeValueIndex;
 
         protected string phrase;
+        protected int barcodeID;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="barcodeDecryptor.EAN8"/> class.
@@ -92,13 +98,20 @@ namespace barcodeDecryptor
         {
             barcodeValueIndex = new int[100];
             this.phrase = phrase;
+            this.barcodeID = (int)barcodeOutput.barcodeEnum.BC_EAN_8;
 
         }
+
+        public override int getBarcodeID()
+        {
+            return this.barcodeID;
+        }
+
         /// <summary>
         /// Gets the index of the barcode value.
         /// </summary>
         /// <returns>The barcode value index.</returns>
-       public override int [] getBarcodeValueIndex()
+        public override int [] getBarcodeValueIndex()
         {
             return barcodeValueIndex;
 
@@ -109,7 +122,7 @@ namespace barcodeDecryptor
         /// </summary>
         /// <param name="phrase">Your non encoded barcode ie. 0097363373766</param>
         ///<returns>the encoded barcode (010101) on String format</returns>
-         public override String Encrypt()
+        public override String Encrypt()
         {
             String returnValue = phrase;
             int valueToCrypt = -1;        
@@ -125,7 +138,8 @@ namespace barcodeDecryptor
             returnValue = startEndSymbol;
             int posPtrPrev;
             int posPtr = 0;
-            for(; posPtr < startEndSymbol.Length; posPtr++) barcodeValueIndex[posPtr] = 0;
+            for (; posPtr < startEndSymbol.Length; posPtr++)
+                barcodeValueIndex[posPtr] = 0;
 
             valueToCrypt = Convert.ToInt32(phrase.Substring(0, 1));
 
@@ -133,24 +147,27 @@ namespace barcodeDecryptor
             {
                 if (pos < 5)
                 {
-                    returnValue += convertTable[convertIndex[valueToCrypt,pos],Convert.ToInt32(phrase.Substring(pos, 1))];
+                    returnValue += convertTable[convertIndex[valueToCrypt, pos], Convert.ToInt32(phrase.Substring(pos, 1))];
 
                     posPtrPrev = posPtr;
-                    for(; posPtr < posPtrPrev+convertTable[convertIndex[valueToCrypt,pos],Convert.ToInt32(phrase.Substring(pos, 1))].Length; posPtr++) barcodeValueIndex[posPtr] = 1;
+                    for (; posPtr < posPtrPrev + convertTable[convertIndex[valueToCrypt, pos], Convert.ToInt32(phrase.Substring(pos, 1))].Length; posPtr++)
+                        barcodeValueIndex[posPtr] = 1;
 
-                } 
+                }
                 else
                 {
                     if (pos == 5)
                     {
                         returnValue += middleSymbol; 
                         posPtrPrev = posPtr;
-                        for(; posPtr < posPtrPrev+middleSymbol.Length; posPtr++) barcodeValueIndex[posPtr] = 0;
+                        for (; posPtr < posPtrPrev + middleSymbol.Length; posPtr++)
+                            barcodeValueIndex[posPtr] = 0;
                     }
 
-                    returnValue += convertTable[2,Convert.ToInt32(phrase.Substring(pos, 1))];
+                    returnValue += convertTable[2, Convert.ToInt32(phrase.Substring(pos, 1))];
                     posPtrPrev = posPtr;
-                    for(; posPtr < posPtrPrev+convertTable[2,Convert.ToInt32(phrase.Substring(pos, 1))].Length; posPtr++) barcodeValueIndex[posPtr] = 1;
+                    for (; posPtr < posPtrPrev + convertTable[2, Convert.ToInt32(phrase.Substring(pos, 1))].Length; posPtr++)
+                        barcodeValueIndex[posPtr] = 1;
                 }
             }  
 
@@ -167,14 +184,25 @@ namespace barcodeDecryptor
         public override int checkDigit()
         {
             int tot = 0;
+            int returnValue = 0;
 
             for (int pos = 0; pos < phrase.Length - 1; pos++)
             {
                 tot += Convert.ToInt32(phrase.Substring(pos, 1)) * checkDigitMultiplier[pos];
             }
 
-            return 10 - tot;
+            if ((tot % 10) > 0)
+            {
+                returnValue = (10 - (tot % 10));
+            }
+
+            return returnValue;
         }
-  }
+
+        public override string getFontDesc()
+        {
+            return "";
+        }
+    }
 }
 

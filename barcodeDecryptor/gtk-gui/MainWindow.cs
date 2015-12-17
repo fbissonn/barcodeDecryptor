@@ -22,6 +22,8 @@ public partial class MainWindow
 	private global::Gtk.Image image1;
 	
 	private global::Gtk.Label label3;
+	
+	private global::Gtk.Button cmdPdf;
 
 	protected virtual void Build ()
 	{
@@ -111,6 +113,16 @@ public partial class MainWindow
 		global::Gtk.Fixed.FixedChild w9 = ((global::Gtk.Fixed.FixedChild)(this.fixed3 [this.label3]));
 		w9.X = 585;
 		w9.Y = 351;
+		// Container child fixed3.Gtk.Fixed+FixedChild
+		this.cmdPdf = new global::Gtk.Button ();
+		this.cmdPdf.CanFocus = true;
+		this.cmdPdf.Name = "cmdPdf";
+		this.cmdPdf.UseUnderline = true;
+		this.cmdPdf.Label = global::Mono.Unix.Catalog.GetString ("Pdf");
+		this.fixed3.Add (this.cmdPdf);
+		global::Gtk.Fixed.FixedChild w10 = ((global::Gtk.Fixed.FixedChild)(this.fixed3 [this.cmdPdf]));
+		w10.X = 617;
+		w10.Y = 257;
 		this.Add (this.fixed3);
 		if ((this.Child != null)) {
 			this.Child.ShowAll ();
@@ -120,5 +132,6 @@ public partial class MainWindow
 		this.Show ();
 		this.DeleteEvent += new global::Gtk.DeleteEventHandler (this.OnDeleteEvent);
 		this.cmdDecrypt.Clicked += new global::System.EventHandler (this.OnCmdDecryptEntered);
+		this.cmdPdf.Clicked += new global::System.EventHandler (this.OnCmdPdfEntered);
 	}
 }

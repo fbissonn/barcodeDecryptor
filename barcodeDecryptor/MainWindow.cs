@@ -28,6 +28,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Design;
 using System.Drawing.Drawing2D;
+using Gdk;
 
 
 
@@ -70,7 +71,7 @@ public partial class MainWindow: Gtk.Window
 			//EAN13 test = new EAN13();
 			barcodeOutput output = new barcodeOutput();
 
-			Pango.FontDescription fontdesc = Pango.FontDescription.FromString("EAN-13 66");
+            Pango.FontDescription fontdesc = Pango.FontDescription.FromString(test.getFontDesc());
 
 			label3.ModifyFont(fontdesc);
 
@@ -79,7 +80,7 @@ public partial class MainWindow: Gtk.Window
 			txtOutput.Buffer.Text = test.Encrypt();
 			//txtOutput.Buffer.Text = test.Encrypt(txtInput.Text);
 
-			image1.Pixbuf = output.DrawLinearBarcode(txtOutput.Buffer.Text,txtInput.Text,(int) barcodeOutput.barcodeEnum.BC_EAN_13,test.getBarcodeValueIndex(),0);
+            image1.Pixbuf = output.DrawLinearBarcode(txtOutput.Buffer.Text,txtInput.Text,(int) test.getBarcodeID(),test.getBarcodeValueIndex(),0);
 
 		} catch (Exception ex)
 		{
@@ -88,6 +89,39 @@ public partial class MainWindow: Gtk.Window
 
 
 	}
+
+    protected void OnCmdPdfEntered(object sender, EventArgs e)
+    {
+        try
+        {
+            // (8,5 x 11) x 72dpi = (612 x 792)
+            PdfSurface pdfSurface = new PdfSurface("test.pdf", (8.5*300), (11*300));
+
+            pdfSurface.SetFallbackResolution(300.0, 300.0);
+
+            Cairo.Context cc = new Cairo.Context(pdfSurface);
+
+            Cairo.Matrix m = cc.Matrix;
+            m.Scale(1,1);
+            cc.Matrix = m;
+                
+            cc.Rectangle(new PointD(150,150),2000,1500);
+           
+            //Gdk.CairoHelper.SetSourcePixbuf(cc, pixbuf.ScaleSimple(300, 300, InterpType.Hyper), 300, 300);
+            Gdk.CairoHelper.SetSourcePixbuf(cc, image1.Pixbuf.ScaleSimple(300, 300, InterpType.Hyper), 300, 300);
+
+            cc.Fill();
+
+            pdfSurface.Finish();
+
+
+        } catch (Exception ex)
+        {
+            errorHandling(ex.Message.ToString());
+        }
+
+
+    }
 
 
 

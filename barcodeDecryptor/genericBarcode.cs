@@ -35,20 +35,20 @@ namespace barcodeDecryptor
         /// <param name="phrase">Phrase.</param>
         public static genericBarcode getBarcode(String phrase)
         {
-            string returnValue = "";
+           
 
             switch (phrase.Length)
             {
 
                 case 13:
                     return (new EAN13(phrase));
-                    break;
+
                 case 8:
                     return (new EAN8(phrase));
-                    break;
+
                 default:
                     return null;
-                    break;
+
             }
       
 
@@ -61,6 +61,10 @@ namespace barcodeDecryptor
         public abstract int [] getBarcodeValueIndex();
         public abstract int checkDigit();
         public abstract String Encrypt();
+
+        public abstract int getBarcodeID();
+        public abstract string getFontDesc();
+       
        
 
 

@@ -118,6 +118,20 @@
             <property name="Y">351</property>
           </packing>
         </child>
+        <child>
+          <widget class="Gtk.Button" id="cmdPdf">
+            <property name="MemberName" />
+            <property name="CanFocus">True</property>
+            <property name="Type">TextOnly</property>
+            <property name="Label" translatable="yes">Pdf</property>
+            <property name="UseUnderline">True</property>
+            <signal name="Clicked" handler="OnCmdPdfEntered" />
+          </widget>
+          <packing>
+            <property name="X">617</property>
+            <property name="Y">257</property>
+          </packing>
+        </child>
       </widget>
     </child>
   </widget>

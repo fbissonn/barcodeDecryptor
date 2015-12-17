@@ -1,3 +1,24 @@
+2015-12-17  Francois Bissonnette  <fbissonn@gmail.com>
+
+	* EAN-8.cs:
+	* EAN13.cs:
+	* MainWindow.cs:
+	* genericBarcode.cs:
+	* barcodeDecryptor.csproj:
+	  
+
+	* gtk-gui\gui.stetic:
+	  added button to create pdf document
+
+	* gtk-gui\MainWindow.cs:
+	  s
+
+
+	* barcodeOutput.cs:
+	  create now a pdf with the barcode drawn (still in test and
+	  unstable)
+
+
 2015-12-15  Francois Bissonnette  <fbissonn@gmail.com>
 
 	* EAN-8.cs:
